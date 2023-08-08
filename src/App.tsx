@@ -1,13 +1,16 @@
 import React from 'react';
-import UserProvider from './contexts/UserContext';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/home/Home';
-import Login from './pages/login/Login';
-import Footer from './components/footer/Footer';
+import './App.css';
+
 import Navbar from './components/navBar/NavBar';
-import Sobre from './pages/sobre/Sobre';
-import { AuthProvider } from './contexts/AuthContext';
+import Footer from './components/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/Cadastro';
+import Home from './pages/home/Home';
+import { AuthProvider } from './contexts/AuthContext';
+import ListaTemas from './components/categorias/listaCategorias/ListaCategorias';
+import FormularioCategoria from './components/categorias/formularioCategoria/formularioCategoria';
+import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCategoria';
 
 
 function App() {
@@ -22,7 +25,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/sobre" element={<Sobre />} />
+              <Route path="/categorias" element={<ListaTemas />} />
+              <Route path="/cadastroTema" element={<FormularioCategoria />} />
+              <Route path="/editarTema/:id" element={<FormularioCategoria />} />
+              <Route path="/deletarTema/:id" element={<DeletarCategoria />} />
             </Routes>
           </div>
           <Footer />
