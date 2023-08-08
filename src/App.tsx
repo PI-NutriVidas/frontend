@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 
 import Navbar from './components/navBar/NavBar';
@@ -14,6 +13,7 @@ import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCa
 import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
 import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
 import ListaProdutos from './components/produtos/listaProduto/ListaProduto';
+import Perfil from './pages/perfil/Perfil';
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
               <Route path="/cadastroProduto" element={<FormularioProduto />} />
               <Route path="/editarProduto/:id" element={<FormularioProduto />} />
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />
