@@ -4,6 +4,7 @@ import Usuario from '../../models/Usuario'
 import { cadastrarUsuario } from '../../services/Service'
 import './Cadastro.css'
 import { toastAlerta } from '../../utils/toastAlerta'
+import Logo from '../../assets/logo2.svg';
 
 function Cadastro() {
 
@@ -70,23 +71,25 @@ function Cadastro() {
 
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
-        <div className="fundoCadastro hidden lg:block"></div>
-        <form className='flex justify-center items-center flex-col w-2/3 gap-3' onSubmit={cadastrarNovoUsuario}>
-          <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
-          <div className="flex flex-col w-full">
+      <div className="fundoCadastro h-screen place-items-center font-bold">
+      <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/20">
+        <img src={Logo} alt="Logo" />
+          <form className='flex justify-center items-center flex-col w-1/3 gap-3 ' onSubmit={cadastrarNovoUsuario}>
+          <h2 className="text-slate text-h2 font-bold font-mono text-black">Cadastrar</h2>
+          <div className="flex flex-col w-90 text-black ">
             <label htmlFor="nome">Nome</label>
             <input
               type="text"
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2 "
               value={usuario.nome} 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-90 text-black">
+         
             <label htmlFor="usuario">Usuario</label>
             <input
               type="text"
@@ -98,7 +101,7 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-90 text-black">
             <label htmlFor="foto">Foto</label>
             <input
               type="text"
@@ -110,7 +113,7 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-90 text-black">
             <label htmlFor="senha">Senha</label>
             <input
               type="password"
@@ -122,28 +125,29 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-90 text-black">
             <label htmlFor="confirmarSenha">Confirmar Senha</label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2  border-slate-700 rounded p-2 "
               value={confirmaSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
             />
           </div>
-          <div className="flex justify-around w-full gap-8">
-            <button className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2' onClick={back}>
+          <div className="flex justify-between w-90 gap-8">
+            <button className='rounded text-white bg-red-700 w-45 py-2 ' onClick={back}>
               Cancelar
             </button>
-            <button className='rounded text-white bg-indigo-400 hover:bg-indigo-900 w-1/2 py-2' type='submit'>
+            <button className='rounded text-white rounded bg-verde_claro2 hover:bg-verde_claro1 w-45 py-2 bg-verde_escuro' type='submit'>
               Cadastrar
             </button>
           </div>
         </form>
       </div>
+    </div>
     </>
   )
 }

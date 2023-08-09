@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { RotatingLines } from 'react-loader-spinner';
+import Logo from '../../assets/logo2.svg';
 
 function Login() {
   let navigate = useNavigate();
@@ -37,10 +38,12 @@ function Login() {
 
   return (
     <>
-      <div className="login-background ">
-        <div className="form-container ">
-          <form className="form flex justify-center items-center flex-col w-1/2 h-3/4 gap-4 rounded-lg  backdrop-opacity-5 backdrop-invert bg-white/20 " onSubmit={login}>
-            <h2 className="text-slate text-5xl font-bold font-mono">Login</h2>
+        <div className="login-background ">
+        <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/20">
+          <img src={Logo} alt="Logo" />
+          <h2 className="text-slate text-h2 font-bold font-mono">Login</h2>
+          <form className="form flex justify-center items-center flex-col w-1/2 gap-4  " onSubmit={login}>
+
             <div className="flex flex-col w-80">
               <label htmlFor="usuario">Usuário</label>
               <input
@@ -65,7 +68,7 @@ function Login() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
-            <button type="submit" className="rounded bg-green-950 hover:bg-lime-900 text-white w-1/2 py-2 flex justify-center">
+            <button type="submit" className="rounded bg-verde_claro2 hover:bg-verde_claro1 text-white w-1/2 py-2 flex justify-center">
               {isLoading ? (
                 <RotatingLines
                   strokeColor="white"

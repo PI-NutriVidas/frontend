@@ -1,8 +1,40 @@
 .fundoCadastro {
-    background-image: url(../../assets/cadastro.jpg);
+    display: flex;
+    justify-content: center;
+    background-image: url(../../assets/fundoteste2.png);
     background-repeat: no-repeat;
     width: 100%;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
+    padding: 100px;
+
+} 
+
+.w-90{
+    width: 24rem;
+}
+
+form{
+    width: 100%;
+    border-radius: .5rem;
+    max-width: 500px;
+    padding: 1rem;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.w-45{
+    width: 45%;
+}
+
+img{
+    height: 8rem!important;
+
+}
+
+.form-container{
+    height: 45rem;
 }
