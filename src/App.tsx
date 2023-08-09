@@ -14,6 +14,7 @@ import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 import Perfil from './pages/perfil/Perfil';
 import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
