@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import './Login.css';
+import loginLogo from '../../assets/logo.svg';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -37,11 +38,11 @@ function Login() {
 
   return (
     <>
-      <div className="login-background ">
-        <div className="form-container ">
-          <form className="form flex justify-center items-center flex-col w-1/2 h-3/4 gap-4 rounded-lg  backdrop-opacity-5 backdrop-invert bg-white/20 " onSubmit={login}>
-            <h2 className="text-slate text-5xl font-bold font-mono">Login</h2>
-            <div className="flex flex-col w-80">
+      <div className="login-background flex bg-cover bg-center h-screen md:w-1/1 lg:w-1/1 xl:w-1/1">
+        <div className="form-container  ">
+          <form className="form flex justify-center items-center flex-col w-1/2 h-3/4 gap-4 rounded-lg backdrop-opacity-5 backdrop-invert bg-white/20 " onSubmit={login}>
+            <img className='h-40 mb-8 ' src={ loginLogo } alt="logo"/>
+            <div className="flex flex-col w-80 mb-8">
               <label htmlFor="usuario">Usuário</label>
               <input
                 type="text"

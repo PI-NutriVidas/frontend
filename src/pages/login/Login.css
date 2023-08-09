@@ -1,12 +1,6 @@
 .login-background {
-    background: url( '../../assets/fundoteste2.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
+    background: url( '../../assets/fundo.png');
     justify-content: center;  
-    align-items: center;  
-    background-size: 3000px;
   }
   
   .form-container {
@@ -17,9 +11,6 @@
     padding: 20px;
     width: 60%;
     height: 80%;
+    
 }
-
-.form {
-    font-size: 17px;
-  }
 
