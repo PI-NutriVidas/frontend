@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 
 import Navbar from './components/navBar/NavBar';
@@ -11,6 +10,10 @@ import { AuthProvider } from './contexts/AuthContext';
 import ListaTemas from './components/categorias/listaCategorias/ListaCategorias';
 import FormularioCategoria from './components/categorias/formularioCategoria/formularioCategoria';
 import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCategoria';
+import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
+import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
+import ListaProdutos from './components/produtos/listaProduto/ListaProduto';
+import Perfil from './pages/perfil/Perfil';
 
 
 function App() {
@@ -29,6 +32,11 @@ function App() {
               <Route path="/cadastroTema" element={<FormularioCategoria />} />
               <Route path="/editarTema/:id" element={<FormularioCategoria />} />
               <Route path="/deletarTema/:id" element={<DeletarCategoria />} />
+              <Route path="/produtos" element={<ListaProdutos />} />
+              <Route path="/cadastroProduto" element={<FormularioProduto />} />
+              <Route path="/editarProduto/:id" element={<FormularioProduto />} />
+              <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />

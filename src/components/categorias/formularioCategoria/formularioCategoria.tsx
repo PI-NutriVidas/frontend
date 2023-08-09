@@ -4,8 +4,8 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Categoria from '../../../models/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 
-function FormularioTema() {
-  const [tema, setTema] = useState<Categoria>({} as Categoria);
+function FormularioCategoria() {
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
   let navigate = useNavigate();
 
@@ -15,7 +15,7 @@ function FormularioTema() {
   const token = usuario.token;
 
   async function buscarPorId(id: string) {
-    await buscar(`/categorias/${id}`, setTema, {
+    await buscar(`/categorias/${id}`, setCategoria, {
       headers: {
         Authorization: token,
       },
@@ -29,12 +29,12 @@ function FormularioTema() {
   }, [id])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setTema({
-      ...tema,
+    setCategoria({
+      ...categoria,
       [e.target.name]: e.target.value
     })
 
-    console.log(JSON.stringify(tema))
+    console.log(JSON.stringify(categoria))
   }
 
   async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
@@ -42,41 +42,41 @@ function FormularioTema() {
 
     if (id !== undefined) {
       try {
-        await atualizar(`/categorias`, tema, setTema, {
+        await atualizar(`/categorias`, categoria, setCategoria, {
           headers: {
             'Authorization': token
           }
         })
 
-        alert('Tema atualizado com sucesso')
+        alert('Categoria atualizada com sucesso!')
         retornar()
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          alert('O token expirou, favor logar novamente!')
           handleLogout()
         } else {
-          alert('Erro ao atualizar o Tema')
+          alert('Erro ao atualizar a Categoria')
         }
 
       }
 
     } else {
       try {
-        await cadastrar(`/categorias`, tema, setTema, {
+        await cadastrar(`/categorias`, categoria, setCategoria, {
           headers: {
             'Authorization': token
           }
         })
 
-        alert('Tema cadastrado com sucesso')
+        alert('Categoria cadastrada com sucesso!')
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          alert('O token expirou, favor logar novamente!')
           handleLogout()
         } else {
-          alert('Erro ao cadastrado o Tema')
+          alert('Erro ao cadastrar Categoria')
         }
       }
     }
@@ -109,7 +109,7 @@ function FormularioTema() {
             placeholder="Nome"
             name='nome'
             className="border-2 border-slate-700 rounded p-2"
-            value={tema.nome}
+            value={categoria.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
@@ -120,7 +120,7 @@ function FormularioTema() {
             placeholder="Descrição"
             name='descricao'
             className="border-2 border-slate-700 rounded p-2"
-            value={tema.descricao}
+            value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
@@ -135,4 +135,4 @@ function FormularioTema() {
   );
 }
 
-export default FormularioTema;
+export default FormularioCategoria;
