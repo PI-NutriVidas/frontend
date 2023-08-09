@@ -1,0 +1,25 @@
+.login-background {
+    background: url( '../../assets/fundoteste2.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    background-size: 3000px;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 20px;
+    width: 60%;
+    height: 80%;
+}
+
+.form {
+    font-size: 17px;
+  }
+

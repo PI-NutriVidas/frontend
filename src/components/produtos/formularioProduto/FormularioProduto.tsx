@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function FormularioProduto() {
@@ -60,7 +61,7 @@ function FormularioProduto() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', 'info');
             navigate('/');
         }
     }, [token]);
@@ -106,14 +107,14 @@ function FormularioProduto() {
                         Authorization: token,
                     },
                 });
-                alert('Produto atualizado com sucesso');
+                toastAlerta('Produto atualizado com sucesso', 'sucesso');
                 retornar();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info');
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar Produto');
+                    toastAlerta('Erro ao atualizar o Produto', 'erro');
                 }
             }
         } else {
@@ -124,14 +125,14 @@ function FormularioProduto() {
                     },
                 });
 
-                alert('Produto cadastrado com sucesso');
+                toastAlerta('Produto cadastrado com sucesso', 'sucesso');
                 retornar();
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', 'info')
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar Produto');
+                    toastAlerta('Erro ao cadastrar a Postagem', 'erro');
                 }
             }
         }
@@ -207,7 +208,7 @@ function FormularioProduto() {
                         <option value="" selected disabled>Selecione uma Categoria</option>
                         {categorias.map((categoria) => (
                             <>
-                                <option value={categoria.id} >{categoria.descricao}</option>
+                                <option value={categoria.id} >{categoria.nome}</option>
                             </>
                         ))}
                     </select>

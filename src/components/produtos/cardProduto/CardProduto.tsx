@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom'
 import Produto from '../../../models/Produto'
-// import editarLogo from '../../../assets/editar-icon.png'
-// import excluirLogo from '../../../assets/deletar-icon.png'
-// import './CardProduto.css'
 
 interface CardProdutoProps {
     prod: Produto
 }
-
-
 
 function CardProduto({ prod }: CardProdutoProps) {
     return (
