@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import homeLogo from '../../assets/nutri.png'
 import './Home.css';
 
@@ -11,8 +12,8 @@ function Home() {
                         <p className='text-xl'>Alimentos saudáveis e acessíveis você encontra aqui </p>
 
                         <div className="flex justify-around gap-4">
-
-                            <button className='rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r via-blue-600 to-green-900 from-indigo-950 py-2 px-4'>Ver Produtos</button>
+                            <Link to="/cadastroProduto"><button className='rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r via-blue-600 to-green-900 from-indigo-950 py-2 px-4'>Adicionar Produto</button></Link>
+                            <Link to="/produtos"><button className='rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r via-blue-600 to-green-900 from-indigo-950 py-2 px-4'>Ver Produtos</button></Link>
                         </div>
                     </div>
 
