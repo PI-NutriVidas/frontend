@@ -3,9 +3,10 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-         extend: {
+        extend: {
         colors: {
           azul_escuro: '#01233F',
           verde_escuro: '#014040',
@@ -15,6 +16,8 @@ export default {
         },
       },
     },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 

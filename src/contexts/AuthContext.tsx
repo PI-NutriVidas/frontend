@@ -39,7 +39,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         } catch (error) {
             console.log(error)
-            toastAlerta('Você precisa estar logado', 'info');
+            toastAlerta('Usuário ou senha inválidos. Tente novamente', 'erro');
             setIsLoading(false)
         }
     }
