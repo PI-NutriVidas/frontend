@@ -4,7 +4,7 @@ import Usuario from '../../models/Usuario'
 import { cadastrarUsuario } from '../../services/Service'
 import './Cadastro.css'
 import { toastAlerta } from '../../utils/toastAlerta'
-import Logo from '../../assets/logo2.svg';
+import Logo from '../../assets/logo.png';
 
 function Cadastro() {
 
@@ -72,7 +72,7 @@ function Cadastro() {
   return (
     <>
       <div className="fundoCadastro h-screen place-items-center font-bold">
-      <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/20">
+      <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/40">
         <img src={Logo} alt="Logo" />
           <form className='flex justify-center items-center flex-col w-1/3 gap-3 ' onSubmit={cadastrarNovoUsuario}>
           <h2 className="text-slate text-h2 font-bold font-mono text-black">Cadastrar</h2>

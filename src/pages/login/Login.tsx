@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { RotatingLines } from 'react-loader-spinner';
-import Logo from '../../assets/logo2.svg';
+import Logo from '../../assets/logo.png';
 
 function Login() {
   let navigate = useNavigate();
@@ -39,7 +39,7 @@ function Login() {
   return (
     <>
         <div className="login-background ">
-        <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/20">
+        <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/40">
           <img src={Logo} alt="Logo" />
           <h2 className="text-slate text-h2 font-bold font-mono">Login</h2>
           <form className="form flex justify-center items-center flex-col w-1/2 gap-4  " onSubmit={login}>
