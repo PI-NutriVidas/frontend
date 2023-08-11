@@ -23,7 +23,7 @@ function App() {
       <ToastContainer/>
         <BrowserRouter>
           <Navbar />
-          <div className='min-h-[100vh] min-w-[100vw]'>
+          <div className='min-h-[100vh]'>
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
