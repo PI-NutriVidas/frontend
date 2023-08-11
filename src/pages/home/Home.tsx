@@ -4,8 +4,8 @@ import colheita from "../../assets/colheita.svg";
 // import Sobre from "../../pages/sobre/Sobre";
 import heroImage from "../../assets/hero.svg";
 import heroImage2 from "../../assets/hero2.svg";
-// import { AiFillGithub } from 'react-icons/Ai'
-// import { AiFillLinkedin } from 'react-icons/Ai'
+import { AiFillGithub } from 'react-icons/ai'
+import { AiFillLinkedin } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react';
 
