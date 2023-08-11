@@ -6,8 +6,8 @@ import heroImage from "../../assets/hero.svg";
 import heroImage2 from "../../assets/hero2.svg";
 import { AiFillGithub } from 'react-icons/Ai'
 import { AiFillLinkedin } from 'react-icons/Ai'
-import { Link, useNavigate } from 'react-router-dom'
-import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 
 
 function Home() {

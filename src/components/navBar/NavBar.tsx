@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import { Dialog } from '@headlessui/react'
@@ -35,13 +35,14 @@ function Navbar() {
 
   let navigate = useNavigate()
 
-  const { usuario, handleLogout } = useContext(AuthContext)
+  // const { handleLogout } = useContext(AuthContext)
+  // const { usuario, handleLogout } = useContext(AuthContext)
 
-  function logout() {
-      handleLogout()
-      alert('Usuário deslogado com sucesso')
-      navigate('/login')
-  }
+  // function logout() {
+  //     handleLogout()
+  //     alert('Usuário deslogado com sucesso')
+  //     navigate('/login')
+  // }
 
   // let navbarComponent
 

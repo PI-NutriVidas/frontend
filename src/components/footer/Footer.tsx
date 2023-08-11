@@ -1,6 +1,5 @@
-import { GithubLogo } from '@phosphor-icons/react'
 import nutriLogo from '../../assets/logoNutriVidas.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function Footer() {
 
 
@@ -18,7 +17,6 @@ function Footer() {
                     alt="NutriVidas ogo"
                     />
                     <p className='self-center text-2xl font-semibold whitespace-nowrap text-white'>NutriVidas</p>
-                    {/* <p className='hover:text-[#03A678] dark:text-white transiton-all ease-in-out duration-300'>NutriVidas</p> */}
                 </Link>
 
             </div>
