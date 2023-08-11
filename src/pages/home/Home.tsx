@@ -276,8 +276,8 @@ function Home() {
                       </a>
                     </h3>
                     <div className='flex gap-x-2 justify-center'>
-                      {/* <a href={dev.href}><AiFillGithub className="dark:text-white w-8 h-8 cursor-pointer"/></a>
-                      <a href={dev.linkedin}><AiFillLinkedin className="dark:text-white w-8 h-8 cursor-pointer"/></a>   */}
+                      <a href={dev.href}><AiFillGithub className="dark:text-white w-8 h-8 cursor-pointer"/></a>
+                      <a href={dev.linkedin}><AiFillLinkedin className="dark:text-white w-8 h-8 cursor-pointer"/></a>  
                     </div>
 
                     
