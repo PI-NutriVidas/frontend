@@ -25,10 +25,10 @@ function App() {
           <Navbar />
           <div className='min-h-[100vh]'>
             <Routes>
-              <Route path="/" element={<Login />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
-              <Route path="/home" element={<Home />} />
               <Route path="/categorias" element={<ListaCategorias />} />
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
               <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />

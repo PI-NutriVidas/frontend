@@ -64,7 +64,6 @@ function Navbar() {
           </div>
           <div className="flex lg:hidden">
             <label className="mr-2 dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
-              {/* <FontAwesomeIcon icon={faMoon} className="h-[22px] text-white dark:text-black hover:text-white dark:hover:text-white transiton-all' ease-out duration-200"/> */}
               <BsFillMoonFill className="text-white dark:text-black"/>
             </label>
             
