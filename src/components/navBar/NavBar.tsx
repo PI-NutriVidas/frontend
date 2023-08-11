@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import nutriLogo from '../../assets/logoNutriVidas.svg'
-import { BsFillMoonFill } from 'react-icons/Bs'
+// import { BsFillMoonFill } from 'react-icons/Bs'
 
 function scrollToElement() {
   const element = document.querySelector('#sobre');
@@ -66,7 +66,7 @@ function Navbar() {
           <div className="flex lg:hidden">
             <label className="mr-2 dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
               {/* <FontAwesomeIcon icon={faMoon} className="h-[22px] text-white dark:text-black hover:text-white dark:hover:text-white transiton-all' ease-out duration-200"/> */}
-              <BsFillMoonFill className="text-white dark:text-black"/>
+              {/* <BsFillMoonFill className="text-white dark:text-black"/> */}
             </label>
             
             <button
@@ -83,7 +83,7 @@ function Navbar() {
           <div className="hidden lg:flex lg:gap-x-4 lg:items-center w-[800px] justify-end">
 
             <label className="dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
-              <BsFillMoonFill className="text-white dark:text-black"/>
+              {/* <BsFillMoonFill className="text-white dark:text-black"/> */}
             </label>
     
             <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Início</Link>
