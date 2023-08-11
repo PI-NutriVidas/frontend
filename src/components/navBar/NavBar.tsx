@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+// import { AuthContext } from '../../contexts/AuthContext'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import nutriLogo from '../../assets/logoNutriVidas.svg'
-import { BsFillMoonFill } from 'react-icons/Bs'
+import { BsFillMoonFill } from 'react-icons/bs'
 
 function scrollToElement() {
   const element = document.querySelector('#sobre');
@@ -33,15 +33,16 @@ function Navbar() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
-  const { usuario, handleLogout } = useContext(AuthContext)
+  // const { handleLogout } = useContext(AuthContext)
+  // const { usuario, handleLogout } = useContext(AuthContext)
 
-  function logout() {
-      handleLogout()
-      alert('Usuário deslogado com sucesso')
-      navigate('/login')
-  }
+  // function logout() {
+  //     handleLogout()
+  //     alert('Usuário deslogado com sucesso')
+  //     navigate('/login')
+  // }
 
   // let navbarComponent
 
@@ -50,9 +51,8 @@ function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-white dark:bg-black transition-all ease-in-out duration-600">
-        <nav className="flex items-center justify-between py-4 lg:py-4 px-4 xl:px-48 border-b " aria-label="Global">
-
-          <div className="flex lg:flex-1 lg:pl">
+        <nav className="flex items-center justify-between py-4 lg:py-4 px-4 xl:px-48 border-b" aria-label="Global">
+          <div className="flex lg:flex-1">
               <Link to='/home' className="-m-1.5 p-1.5 flex items-center gap-x-4 font-black font text-xl"><span className="sr-only">Your Company</span>
                 <img
                   className="h-12 w-auto"
@@ -90,7 +90,7 @@ function Navbar() {
             <Link to='/home#sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={scrollToElement}>Sobre</Link>
 
             <Link to='/login' className='text-white dark:text-[#92D94D] px-2 text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#03A678] dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] 
+              <button className='transiton-all ease-in-out duration-300 bg-[#03A678] dark:bg-black border-[0.5px] dark:border-[0.5px] dark:border-[#92D94D] 
               dark:hover:bg-[#92D94D] dark:hover:text-black p-3 rounded-lg hover:bg-[#01233F]'>Entrar</button>
             </Link>
 
