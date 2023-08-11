@@ -69,17 +69,29 @@ function DeletarProduto() {
 
             <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a produto a seguir?</p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>Produto</header>
-                <div className="p-4">
-                    <p className='text-xl h-full'>{produto.nome}</p>
-                    <p>{produto.descricao}</p>
-                </div>
-                <div className="flex">
-                    <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
-                    <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarProduto}>
-                        Sim
-                    </button>
+            <div className="bg-gray-100 justify-center flex">
+                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+                    <div className="max-w-sm bg-white rounded-lg shadow dark:bg-verde_escuro dark:border-gray-700 transition-transform duration-300 ease-in-out transform hover:scale-110">
+                        <a href="#">
+                            <img className="rounded-t-lg" src={produto.foto} alt="" />
+                        </a>
+                        <div className="p-5">
+                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{produto.nome}</h5>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{produto.categoria?.nome}</p>
+                            <p className="mb-3 font-bold text-gray-700 dark:text-gray-400">R$ {new Intl.NumberFormat('pt-BR', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                            }).format(produto.preco)}</p>
+                            <div className='flex justify-evenly'>
+                                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" onClick={retornar}>
+                                    Retornar
+                                </button>
+                                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black" onClick={deletarProduto}>
+                                    Deletar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

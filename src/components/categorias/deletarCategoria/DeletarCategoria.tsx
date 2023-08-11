@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext'
 import { buscar, deletar } from '../../../services/Service'
 import { toastAlerta } from '../../../utils/toastAlerta'
 import Tema from '../../../models/Categoria'
+import categoriaIcon from '../../../assets/categorias.png'
 
 function DeletarCategoria() {
     const [tema, setTema] = useState<Tema>({} as Tema)
@@ -65,22 +66,31 @@ function DeletarCategoria() {
     }
     return (
         <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar Categoria</h1>
+        <h1 className='text-4xl text-center my-4 mt-20'>Deletar Categoria</h1>
 
-            <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a categoria a seguir?</p>
-
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>Categoria</header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.nome}</p>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
-                <div className="flex">
-                    <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
-                    <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarTema}>
-                        Sim
+        <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a categoria a seguir?</p>
+        <div className='flex justify-center'>
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-verde_escuro dark:border-gray-700 transition-transform duration-300 ease-in-out transform hover:scale-110">
+            <a href="#">
+                <img className="rounded-t-lg" src={categoriaIcon} alt="" />
+            </a>
+            <div className="p-5 ">
+                <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tema.nome}</h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tema.descricao}</p>
+                <div className='flex justify-evenly'>
+                    <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" onClick={retornar}>
+                        Retornar
+                    </button>
+                    <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black" onClick={deletarTema}>
+                        Deletar
                     </button>
                 </div>
             </div>
         </div>
+        </div>
+    </div >
     )
 }
 

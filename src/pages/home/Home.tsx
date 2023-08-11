@@ -8,9 +8,13 @@ import { AiFillGithub } from 'react-icons/ai'
 import { AiFillLinkedin } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react';
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from 'react'
 
 
 function Home() {
+  const { usuario } = useContext(AuthContext)
+  const isAdmin = usuario.tipo == 'admin'
 
   useEffect(() => {
     const element = document.querySelector('#sobre');
@@ -87,19 +91,21 @@ function Home() {
               sua jornada de bem-estar.
             </p>
             <div className="flex justify-center mt-14 lg:justify-start">
-              <a href="#saibaMais">
-              <button className="text-white bg-[#02735E] hover:bg-[#03A678] hover:text-white dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] dark:text-[#92D94D] dark:hover:bg-[#92D94D] dark:hover:text-black text-font-bold rounded-lg px-5 py-4 text-center hover:drop-shadow-md transiton-all ease-out duration-200 shadow-lg shadow-black-500/5 font-medium ">
-                Saiba mais
-              </button>
-              </a>
-              <Link to='/produtos'>
-              <button
-                className="text-white ml-4 bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition 
-                            duration-300 ease-out"
-              >
-                Produtos
-              </button>
-              </Link>
+            {isAdmin ?
+                <>
+                  <Link to='/cadastroProduto' className="text-white ml-4 bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition duration-300 ease-out"> Cadastrar Produto </Link>
+                  <Link to='/cadastroCategoria' className="text-white ml-4 bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition duration-300 ease-out"> Cadastrar Categoria </Link>
+                </>
+                :
+                <>
+                  <a href="#saibaMais">
+                    <button className="text-white bg-[#02735E] hover:bg-[#03A678] hover:text-white dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] dark:text-[#92D94D] dark:hover:bg-[#92D94D] dark:hover:text-black text-font-bold rounded-lg px-5 py-4 text-center hover:drop-shadow-md transiton-all ease-out duration-200 shadow-lg shadow-black-500/5 font-medium ">
+                      Saiba mais
+                    </button>
+                  </a>
+                  <Link to='/produtos' className="text-white ml-4 bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition duration-300 ease-out"> Produtos </Link>
+                </>
+              }
             </div>
           </div>
           <div className="drop-shadow-md">
