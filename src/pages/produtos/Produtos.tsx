@@ -1,14 +1,14 @@
 import ListaProdutos from '../../components/produtos/listaProdutos/ListaProdutos';
 import { Carousel } from 'flowbite-react';
-import bannerNutri from '../../assets/banner nutrividas.svg'
-import bannerEco from '../../assets/banner ecobag.svg'
+import bannerNutri from '../../assets/banner_nutrividas.svg'
+import bannerEco from '../../assets/banner_ecobag.svg'
 import './Produtos.css'
 
 function Produtos() {
     return (
         <>
         <div className='relative w-full teste'>
-            <div className='relative h-56 overflow-hidden'>
+            <div className='relative h-[500px] overflow-hidden'>
                 <Carousel>
                     <img
                         alt="..."
