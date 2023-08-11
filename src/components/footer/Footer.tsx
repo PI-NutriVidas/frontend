@@ -2,7 +2,6 @@ import nutriLogo from '../../assets/logoNutriVidas.svg'
 import { Link } from 'react-router-dom'
 function Footer() {
 
-
   return (
     <>
       
