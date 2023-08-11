@@ -38,7 +38,7 @@ function Footer() {
                     <h2 className="mb-6 text-sm font-semibold uppercase text-white">Social Midias</h2>
                     <ul className="text-gray-400 font-medium">
                         <li className="mb-4">
-                            <a href="https://github.com/themesberg/flowbite" className="hover:underline ">NutriVidas</a>
+                            <a href="/home" className="hover:underline ">NutriVidas</a>
                         </li>
                         <li>
                             <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Desenvolvedores</a>
@@ -49,7 +49,7 @@ function Footer() {
                     <h2 className="mb-6 text-sm font-semibold uppercase text-white">ODS</h2>
                     <ul className="text-gray-400 font-medium">
                         <li className="mb-4">
-                            <a href="#" className="hover:underline">Privacy Policy</a>
+                            <a href="https://brazil.generation.org/" className="hover:underline">Generation</a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">Terms &amp; Conditions</a>

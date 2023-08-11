@@ -28,7 +28,7 @@ function CardProduto({ prod }: CardProdutoProps) {
     }
 
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 dark:bg-black">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
                 <div className="max-w-sm bg-white rounded-lg shadow dark:bg-verde_escuro dark:border-gray-700 transition-transform duration-300 ease-in-out transform hover:scale-110">
                     <a href="#">

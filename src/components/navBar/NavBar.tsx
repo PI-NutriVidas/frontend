@@ -8,12 +8,6 @@ import { BsFillMoonFill } from 'react-icons/bs'
 import { toastAlerta } from '../../utils/toastAlerta'
 import { AuthContext } from '../../contexts/AuthContext'
 
-function scrollToElement() {
-  const element = document.querySelector('#sobre');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
 
 function Navbar() {
    /* Toggle */
@@ -45,8 +39,6 @@ function Navbar() {
       navigate('/login')
   }
 
-  // Tem que aprecer produtos e perfil para quem estar logado
-
   //Alterando navbar caso o Usuario esteja logado
   let navbarComponent
 
@@ -56,7 +48,7 @@ function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 bg-white dark:bg-black transition-all ease-in-out duration-600">
         <nav className="flex items-center justify-between py-4 lg:py-4 px-4 xl:px-48 border-b" aria-label="Global">
           <div className="flex lg:flex-1">
-              <Link to='/home' className="-m-1.5 p-1.5 flex items-center gap-x-4 font-black font text-xl"><span className="sr-only">Your Company</span>
+              <Link to='/' className="-m-1.5 p-1.5 flex items-center gap-x-4 font-black font text-xl"><span className="sr-only">Your Company</span>
                 <img
                   className="h-12 w-auto"
                   src={nutriLogo}
@@ -89,16 +81,16 @@ function Navbar() {
     
             <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Início</Link>
 
-            <Link to='/home#sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={scrollToElement}>Sobre</Link>
+            <Link to='/sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Sobre</Link>
 
             <Link to='/login' className='text-white dark:text-[#92D94D] px-2 text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#03A678] dark:bg-black border-[0.5px] dark:border-[0.5px] dark:border-[#92D94D] 
-              dark:hover:bg-[#92D94D] dark:hover:text-black p-3 rounded-lg hover:bg-[#01233F]'>Entrar</button>
+               <button type="button" className="text-white bg-[#03A678] focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 rounded-lg text-sm px-6 py-3 text-center dark:bg-black border-[0.5px] dark:border-[0.5px] dark:border-[#92D94D] dark:text-verde_claro2 dark:hover:bg-[#92D94D] dark:hover:text-black font-bold hover:bg-black hover:text-white"> Entrar</button>
             </Link>
 
             <Link to='/cadastro' className='hover:text-orange_01 text-white text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#02735E] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white p-3 rounded-lg hover:bg-[#01233F]'>Criar Conta</button>
+            <button type="button" className="text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 text-center"> Criar Conta</button>
             </Link>
+
           </div>
         </nav>
 
@@ -137,7 +129,6 @@ function Navbar() {
                 <div className="py-2 gap-y-4 flex flex-col items-center justify-center">
                 <p className='text-black font-bold dark:text-white'>Cor do fundo</p>
                 <label className="dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
-                  {/* <FontAwesomeIcon icon={faMoon} className="h-[22px] text-white dark:text-black hover:text-white dark:hover:text-white transiton-all' ease-out duration-200"/> */}
                 </label>
                 </div>
               </div>
@@ -184,22 +175,19 @@ function Navbar() {
               <BsFillMoonFill className="text-white dark:text-black"/>
             </label>
     
-            <Link to='/produtos' className='text-white dark:text-[#92D94D] px-2 text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#02735E] dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] 
-              dark:hover:bg-[#92D94D] dark:hover:text-black p-3 rounded-lg hover:bg-[#01233F]'>Produtos</button>
-            </Link>
+            <Link to='/produtos' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Produtos</Link>
 
-            <Link to='/categorias' className='hover:text-orange_01 text-white text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#02735E] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white p-3 rounded-lg hover:bg-[#01233F]'>Categorias</button>
-            </Link>
+            <Link to='/categorias' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Categorias</Link>
 
-            <Link to='/perfil' className='hover:text-orange_01 text-white text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#02735E] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white p-3 rounded-lg hover:bg-[#01233F]'>Perfil</button>
-            </Link>
+            <Link to='/sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Sobre</Link>
+
+            <Link to='/perfil' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Perfil</Link>
 
             <Link to='' className='hover:text-orange_01 text-white text-md font-bold'>
-              <button className='transiton-all ease-in-out duration-300 bg-[#02735E] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white p-3 rounded-lg hover:bg-[#01233F]' onClick={logout}>Sair</button>
+     
+              <button type="button" className="text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-6 py-3 text-center" onClick={logout}> Sair</button>
             </Link>
+
 
           </div>
         </nav>

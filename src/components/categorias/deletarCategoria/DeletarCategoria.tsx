@@ -1,97 +1,69 @@
-import { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
-import { AuthContext } from '../../../contexts/AuthContext'
-import { buscar, deletar } from '../../../services/Service'
+// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
+import Produto from '../../../models/Produto'
 import { toastAlerta } from '../../../utils/toastAlerta'
-import Tema from '../../../models/Categoria'
-import categoriaIcon from '../../../assets/categorias.png'
+import { useContext, useState } from 'react';
 
-function DeletarCategoria() {
-    const [tema, setTema] = useState<Tema>({} as Tema)
+interface CardProdutoProps {
+    prod: Produto
+}
 
-    let navigate = useNavigate()
+function CardProduto({ prod }: CardProdutoProps) {
+    const [valor, setValor] = useState(prod.quantidade);
+    const { usuario } = useContext(AuthContext)
+    const isAdmin = usuario.tipo == 'admin'
 
-    const { id } = useParams<{ id: string }>()
-
-    const { usuario, handleLogout } = useContext(AuthContext)
-    const token = usuario.token
-
-    async function buscarPorId(id: string) {
+    function addCarrinho(){
         try {
-            await buscar(`/categorias/${id}`, setTema, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-        } catch (error: any) {
-            if (error.toString().includes('403')) {
-                toastAlerta('O token expirou, favor logar novamente', 'info')
-                handleLogout()
+            if(valor > 0){
+                setValor(valor - 1)
+                toastAlerta('Item adicionado ao carrinho', 'sucesso');
+            } else {
+                toastAlerta('Quantidade insuficiente', 'erro');
             }
+        } catch(error:any){
+            toastAlerta('Não foi possível adicionar o item ao carrinho', 'erro');
         }
     }
 
-    useEffect(() => {
-        if (token === '') {
-            toastAlerta('Você precisa estar logado', 'info')
-            navigate('/login')
-        }
-    }, [token])
-
-    useEffect(() => {
-        if (id !== undefined) {
-            buscarPorId(id)
-        }
-    }, [id])
-
-    function retornar() {
-        navigate("/categorias")
-    }
-
-    async function deletarTema() {
-        try {
-            await deletar(`/categorias/${id}`, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-
-            toastAlerta('Categoria apagada com sucesso', 'sucesso');
-
-        } catch (error) {
-            toastAlerta('Erro ao apagar a Categoria', 'erro')
-        }
-
-        retornar()
-    }
     return (
-        <div className='container w-1/3 mx-auto'>
-        <h1 className='text-4xl text-center my-4 mt-20'>Deletar Categoria</h1>
-
-        <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a categoria a seguir?</p>
-        <div className='flex justify-center'>
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-verde_escuro dark:border-gray-700 transition-transform duration-300 ease-in-out transform hover:scale-110">
-            <a href="#">
-                <img className="rounded-t-lg" src={categoriaIcon} alt="" />
-            </a>
-            <div className="p-5 ">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{tema.nome}</h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{tema.descricao}</p>
-                <div className='flex justify-evenly'>
-                    <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" onClick={retornar}>
-                        Retornar
-                    </button>
-                    <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black" onClick={deletarTema}>
-                        Deletar
-                    </button>
+        <div className="bg-gray-100">
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+                <div className="max-w-sm bg-white rounded-lg shadow dark:bg-verde_escuro dark:border-gray-700 transition-transform duration-300 ease-in-out transform hover:scale-110">
+                    <a href="#">
+                        <img className="rounded-t-lg" src={prod.foto} alt="" />
+                    </a>
+                    <div className="p-5">
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{prod.nome}</h5>
+                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-300">{prod.categoria?.nome}</p>
+                        <p className="mb-3 font-bold text-gray-700 dark:text-gray-300">R$ {new Intl.NumberFormat('pt-BR', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                        }).format(prod.preco)}</p>
+                        <p className="mb-3 font-bold text-gray-700 dark:text-gray-300">Quantidade: {valor}</p>
+                        {isAdmin ? 
+                            <>
+                            <h1 className='font-bold dark:text-white'>Usuário Admin</h1>
+                                <div className='flex justify-evenly mt-2'>
+                                    <Link to={`/editarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" >
+                                        Editar
+                                    </Link>
+                                    <Link to={`/deletarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black">
+                                        Deletar
+                                    </Link>
+                                </div>  
+                            </>
+                            :
+                            <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" onClick={addCarrinho}>
+                                Adicionar 🛒
+                            </button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-    </div >
     )
 }
 
-export default DeletarCategoria
+export default CardProduto

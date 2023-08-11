@@ -213,7 +213,7 @@ function FormularioProduto() {
                         ))}
                     </select>
                 </div>
-                <button disabled={carregandoCategoria} type='submit' className='font-bold rounded-lg text-slate-100 w-1/2 py-2 mx-auto block bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-[#014040] dark:hover:text-white'>
+                <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
                     {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
                 </button>
             </form>
