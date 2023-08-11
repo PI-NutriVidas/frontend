@@ -1,6 +1,6 @@
-import { useContext, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext'
+// import { AuthContext } from '../../contexts/AuthContext'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import nutriLogo from '../../assets/logoNutriVidas.svg'
@@ -33,7 +33,7 @@ function Navbar() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
   // const { handleLogout } = useContext(AuthContext)
   // const { usuario, handleLogout } = useContext(AuthContext)
