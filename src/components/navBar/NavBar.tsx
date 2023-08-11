@@ -1,13 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
-// import { faMoon } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import nutriLogo from '../../assets/logoNutriVidas.svg'
 import { BsFillMoonFill } from 'react-icons/Bs'
 
+function scrollToElement() {
+  const element = document.querySelector('#sobre');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
 function Navbar() {
    /* Toggle */
@@ -83,9 +87,7 @@ function Navbar() {
     
             <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Início</Link>
 
-            <a href="/home#sobre">OUTRO SOBRE</a>
-
-            <Link to='/home#sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Sobre</Link>
+            <Link to='/home#sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={scrollToElement}>Sobre</Link>
 
             <Link to='/login' className='text-white dark:text-[#92D94D] px-2 text-md font-bold'>
               <button className='transiton-all ease-in-out duration-300 bg-[#03A678] dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] 

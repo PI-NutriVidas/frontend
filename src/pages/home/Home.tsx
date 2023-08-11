@@ -7,13 +7,24 @@ import heroImage2 from "../../assets/hero2.svg";
 import { AiFillGithub } from 'react-icons/Ai'
 import { AiFillLinkedin } from 'react-icons/Ai'
 import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react';
+
 
 function Home() {
-    
+
+  useEffect(() => {
+    const element = document.querySelector('#sobre');
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   const people = [
     {
       name: "Gabriele Cristine",
       href: "https://github.com/GabrieleeCris",
+      linkedin: "https://www.linkedin.com/in/gabriele-cristine-ela-dela/",
       imageSrc:
         "https://res.cloudinary.com/salvedojuliao/image/upload/v1691699006/nutrividas/sobre/gabi_peap71.png",
       imageAlt: "Integrante do projeto",
@@ -21,6 +32,7 @@ function Home() {
     {
       name: "Larissa Bueno",
       href: "https://github.com/Larissasbueno",
+      linkedin: "https://www.linkedin.com/in/larissasbueno/",
       imageSrc:
         "https://res.cloudinary.com/salvedojuliao/image/upload/v1691699007/nutrividas/sobre/larissa_n7a9ba.png",
       imageAlt: "Integrante do projeto",
@@ -29,6 +41,7 @@ function Home() {
     {
       name: "Letícia Francielle",
       href: "https://github.com/leticiafrancielle",
+      linkedin: "https://www.linkedin.com/in/let%C3%ADcia-francielle/",
       imageSrc:
         "https://res.cloudinary.com/salvedojuliao/image/upload/v1691699006/nutrividas/sobre/leticia_llmk9e.png",
       imageAlt: "Integrante do projeto",
@@ -36,6 +49,7 @@ function Home() {
     {
       name: "Júlio Cordeiro",
       href: "https://github.com/JayCesar",
+      linkedin: "https://www.linkedin.com/in/jc-batista/",
       imageSrc:
         "https://res.cloudinary.com/salvedojuliao/image/upload/v1691699006/nutrividas/sobre/julio_gcwwha.png",
       imageAlt: "Integrante do projeto",
@@ -43,6 +57,7 @@ function Home() {
     {
       name: "Mateus Ferreira",
       href: "https://github.com/mateuzu",
+      linkedin: "https://www.linkedin.com/in/mateus-ferreira-a55691234/",
       imageSrc:
         "https://res.cloudinary.com/salvedojuliao/image/upload/v1691699006/nutrividas/sobre/matheus_w7rriv.png",
       imageAlt: "Integrante do projeto",
@@ -72,9 +87,11 @@ function Home() {
               sua jornada de bem-estar.
             </p>
             <div className="flex justify-center mt-14 lg:justify-start">
+              <a href="#saibaMais">
               <button className="text-white bg-[#02735E] hover:bg-[#03A678] hover:text-white dark:bg-black dark:border-[0.5px] dark:border-[#92D94D] dark:text-[#92D94D] dark:hover:bg-[#92D94D] dark:hover:text-black text-font-bold rounded-lg px-5 py-4 text-center hover:drop-shadow-md transiton-all ease-out duration-200 shadow-lg shadow-black-500/5 font-medium ">
                 Saiba mais
               </button>
+              </a>
               <Link to='/produtos'>
               <button
                 className="text-white ml-4 bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition 
@@ -124,7 +141,7 @@ function Home() {
       </section>
 
       {/* Section 3 */}
-      <section className="pt-20 px-6 bg-white dark:bg-black flex flex-col items-center justify-center mx-auto pb-32">
+      <section className="pt-20 px-6 bg-white dark:bg-black flex flex-col items-center justify-center mx-auto pb-32" id="saibaMais">
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
             <img src={colheita} alt="heroImage" className="w-80" />
@@ -259,9 +276,11 @@ function Home() {
                       </a>
                     </h3>
                     <div className='flex gap-x-2 justify-center'>
-                      <AiFillGithub className="dark:text-white w-8 h-8 cursor-pointer"/>
-                      <AiFillLinkedin className="dark:text-white w-8 h-8 cursor-pointer"/>
+                      <a href={dev.href}><AiFillGithub className="dark:text-white w-8 h-8 cursor-pointer"/></a>
+                      <a href={dev.linkedin}><AiFillLinkedin className="dark:text-white w-8 h-8 cursor-pointer"/></a>  
                     </div>
+
+                    
                   </div>
                 </div>
                 
