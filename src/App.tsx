@@ -15,7 +15,7 @@ import ListaCategorias from './components/categorias/listaCategorias/ListaCatego
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Produtos from './pages/produtos/Produtos';
-// import Sobre from './pages/sobre/Sobre';
+import Sobre from './pages/sobre/Sobre';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <ToastContainer/>
         <BrowserRouter>
           <Navbar />
-          <div className='min-h-[100vh]'>
+          <div className='min-h-[100vh] dark:bg-black'>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
@@ -38,6 +38,7 @@ function App() {
               <Route path="/editarProduto/:id" element={<FormularioProduto />} />
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
               <Route path="/perfil" element={<Perfil />} />
+              <Route path="/sobre" element={<Sobre />} />
             </Routes>
           </div>
           <Footer />
