@@ -23,7 +23,7 @@ function App() {
       <ToastContainer/>
         <BrowserRouter>
           <Navbar />
-          <div className='min-h-[100vh]'>
+          <div className='min-h-[100vh] dark:bg-black'>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
