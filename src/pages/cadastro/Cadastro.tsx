@@ -85,7 +85,7 @@ function Cadastro() {
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2 text-black"
               value={usuario.nome} 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -140,10 +140,10 @@ function Cadastro() {
             />
           </div>
           <div className="flex justify-between w-90 gap-8">
-            <button className="text-white bg-gradient-to-br from-[#FF0000] to-[#8B0000] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-9 py-4 text-center mr-2 mb-2" onClick={back}>
+            <button className="text-white bg-gradient-to-br from-[#FF0000] to-[#8B0000] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-9 py-4 text-center mb-2" onClick={back}>
               Cancelar
             </button>
-            <button className='text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-8 py-4 text-center mr-2 mb-2' type='submit'>
+            <button className='text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-8 py-4 text-center mb-2' type='submit'>
               Cadastrar
             </button>
           </div>
