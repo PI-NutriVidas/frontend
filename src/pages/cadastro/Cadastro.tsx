@@ -74,23 +74,23 @@ function Cadastro() {
   return (
     <>
       <div className="fundoCadastro h-screen place-items-center font-bold">
-      <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/80">
+      <div className="form-container rounded-lg backdrop-opacity-5 backdrop-invert bg-white/80 dark:bg-black/60 shadow shadow-black-500/40 hover:shadow-indigo-500/40">
         <img src={Logo} alt="Logo" />
           <form className='flex justify-center items-center flex-col w-1/3 gap-3 ' onSubmit={cadastrarNovoUsuario}>
-          <h2 className="text-slate text-h2 font-bold font-mono text-black">Cadastrar</h2>
-          <div className="flex flex-col w-90 text-black ">
+          <h2 className="text-slate text-h2 font-bold font-mono text-black dark:text-verde_claro2">Cadastrar</h2>
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
             <label htmlFor="nome">Nome</label>
             <input
               type="text"
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2 "
+              className="border-2 border-slate-700 rounded p-2"
               value={usuario.nome} 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-90 text-black">
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
          
             <label htmlFor="usuario">Usuario</label>
             <input
@@ -103,7 +103,7 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-90 text-black">
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
             <label htmlFor="foto">Foto</label>
             <input
               type="text"
@@ -115,7 +115,7 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-90 text-black">
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
             <label htmlFor="senha">Senha</label>
             <input
               type="password"
@@ -127,7 +127,7 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          <div className="flex flex-col w-90 text-black">
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
             <label htmlFor="confirmarSenha">Confirmar Senha</label>
             <input
               type="password"
@@ -140,10 +140,10 @@ function Cadastro() {
             />
           </div>
           <div className="flex justify-between w-90 gap-8">
-            <button className='rounded text-white bg-red-700 w-45 py-2 ' onClick={back}>
+            <button className="text-white bg-gradient-to-br from-[#FF0000] to-[#8B0000] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-9 py-4 text-center mr-2 mb-2" onClick={back}>
               Cancelar
             </button>
-            <button className='rounded text-white rounded bg-verde_claro2 hover:bg-verde_claro1 w-45 py-2 bg-verde_escuro' type='submit'>
+            <button className='text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-8 py-4 text-center mr-2 mb-2' type='submit'>
               Cadastrar
             </button>
           </div>
