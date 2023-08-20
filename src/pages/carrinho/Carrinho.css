@@ -1,0 +1,44 @@
+.subtotal-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: auto;
+    padding: 5px;
+    margin: 5px;
+}
+
+.cards-container {
+    grid-column: 1 / span 3;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    max-width: calc(33.33% - 1rem);
+    padding: 1rem;
+}
+
+.subtotal {
+    grid-column: 4 / span 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-subtotal{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.payment-option{
+    margin: 5px;
+    margin-left: 15px;
+    display: flex;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 4px 1px rgba(0, 0, 0, 0.1);
+}

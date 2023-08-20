@@ -91,7 +91,6 @@ function Cadastro() {
             />
           </div>
           <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
-         
             <label htmlFor="usuario">Usuario</label>
             <input
               type="text"
@@ -115,6 +114,36 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
+          <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
+              <label>Você deseja ser:</label>
+              <div className='flex items-center'>
+                <input
+                  type="radio"
+                  id="fornecedor"
+                  name="tipo"
+                  placeholder="fornecedor"
+                  className="border-2 border-slate-700 rounded p-2"
+                  value="fornecedor"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                  checked={usuario.tipo === 'fornecedor'}
+                />
+                <label htmlFor="tipo" className='ml-5'>Fornecedor</label>
+              </div>
+
+              <div className='flex items-center'>
+                <input
+                  type="radio"
+                  id="cliente"
+                  name="tipo"
+                  placeholder="cliente"
+                  className="border-2 border-slate-700 rounded p-2"
+                  value="cliente"
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                  checked={usuario.tipo === 'cliente'}
+                />
+                <label htmlFor="tipo" className='ml-5'>Cliente</label>
+              </div>
+            </div>
           <div className="flex flex-col w-90 text-black dark:text-verde_claro2">
             <label htmlFor="senha">Senha</label>
             <input

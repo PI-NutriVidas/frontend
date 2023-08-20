@@ -140,7 +140,7 @@ function FormularioProduto() {
 
     const carregandoCategoria = categoria.descricao === '';
     return (
-        <div className="container flex flex-col mx-auto items-center">
+        <div className="container flex flex-col mx-auto items-center dark:text-white">
             <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
 
             <form onSubmit={gerarNovoProduto} className="flex flex-col w-1/2 gap-4">
@@ -177,7 +177,7 @@ function FormularioProduto() {
                         placeholder="Preço"
                         name="preco"
                         required
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2 border-slate-700 rounded p-2 dark:text-black"
                     />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -188,7 +188,7 @@ function FormularioProduto() {
                         type="number"
                         placeholder="Quantidade"
                         name="quantidade"
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="border-2 border-slate-700 rounded p-2 dark:text-black"
                     />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -204,7 +204,7 @@ function FormularioProduto() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <p>Categoria da produto</p>
-                    <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
+                    <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded dark:text-black' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
                         <option value="" selected disabled>Selecione uma Categoria</option>
                         {categorias.map((categoria) => (
                             <>
@@ -213,7 +213,7 @@ function FormularioProduto() {
                         ))}
                     </select>
                 </div>
-                <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
+                <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black w-1/2 mx-auto block'>
                     {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
                 </button>
             </form>
