@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Produtos from './pages/produtos/Produtos';
 import Sobre from './pages/sobre/Sobre';
+import Carrinho from './pages/carrinho/Carrinho';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
               <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
               <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+              <Route path="/carrinho" element={<Carrinho />} />
               <Route path="/produtos" element={<Produtos />} />
               <Route path="/cadastroProduto" element={<FormularioProduto />} />
               <Route path="/editarProduto/:id" element={<FormularioProduto />} />

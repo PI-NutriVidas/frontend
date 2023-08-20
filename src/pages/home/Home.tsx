@@ -9,6 +9,8 @@ import { useContext } from "react";
 function Home() {
   const { usuario } = useContext(AuthContext);
   const isAdmin = usuario.tipo == "admin";
+  const isFornecedor = usuario.tipo == "fornecedor"
+  const isCliente = usuario.tipo == "cliente"
 
   return (
     <>
@@ -52,7 +54,15 @@ function Home() {
                     Cadastrar Categoria{" "}
                   </Link>
                 </>
-              ) : (
+              ) : isFornecedor ? (
+                <>
+                  <Link to="/cadastroProduto" className="text-white bg-[#03A678] hover:bg-[#92D94D] dark:bg-[#92D94D] dark:text-black dark:hover:bg-white font-medium rounded-lg px-5 py-4 text-center hover:drop-shadow-md transition duration-300 ease-out">
+                    {" "}
+                    Cadastre seu produto{" "}
+                  </Link>
+                </>
+
+              ) : isCliente && (
                 <>
                   <a href="#saibaMais">
                     <button type="button" className="text-black dark:border-2 dark:border-[#92D94D] text-font-bold dark:text-[#92D94D] hover:bg-gradient-to-bl focus:ring-4 transition focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 rounded-lg text-sm px-8 py-4 text-center mb-2 hover:drop-shadow-md transiton-all ease-out duration-200 shadow-lg shadow-black-500/40 font-medium drop-shadow-l bg-gradient-to-br from-[#fff] to-[#92D94D]  hover:bg-verde_claro1 dark:bg-none dark:hover:bg-verde_claro2 dark:hover:text-black dark:py-[14px]">Saiba mais</button>
@@ -211,152 +221,149 @@ function Home() {
 
       {/* Sobre 4 */}
       <section>
-      <div className="relative max-w-screen-xl py-20 px-4 mx-auto bg-white dark:bg-black sm:px-6 lg:px-8 py-26 lg:mt-20">
-        <div className="relative">
-          <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
-            <div className="ml-auto lg:col-start-2 lg:max-w-2xl">
-              <p className="text-base font-semibold leading-6 text-verde_claro2 uppercase">
-                Nossos Produtos
-              </p>
-              <h4 className="mt-2 text-2xl font-extrabold leading-8 text-gray-900 dark:text-white sm:text-3xl sm:leading-9">
-              Abraçando a Natureza e a Reciclagem: Redefinindo o Cuidado Pessoal com Responsabilidade Ambiental!
-              </h4>
-              <p className="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
-              Nossos produtos naturais foram cuidadosamente selecionados para oferecer a você não apenas uma opção, mas um estilo de vida completo
-              </p>
-              <ul className="gap-6 mt-8 md:grid md:grid-cols-2">
-                <li className="mt-6 lg:mt-0">
-                  <div className="flex">
-                    <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
-                      Responsabilidade ambiental
-                    </span>
-                  </div>
-                </li>
-                <li className="mt-6 lg:mt-0">
-                  <div className="flex">
-                    <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
-                      Alimentos saborosos
-                    </span>
-                  </div>
-                </li>
-                <li className="mt-6 lg:mt-0">
-                  <div className="flex">
-                    <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
-                      Qualidade alimentar
-                    </span>
-                  </div>
-                </li>
-                <li className="mt-6 lg:mt-0">
-                  <div className="flex">
-                    <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
-                      <svg
-                        className="w-4 h-4"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                        ></path>
+        <div className="relative max-w-screen-xl py-20 px-4 mx-auto bg-white dark:bg-black sm:px-6 lg:px-8 py-26 lg:mt-20">
+          <div className="relative">
+            <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
+              <div className="ml-auto lg:col-start-2 lg:max-w-2xl">
+                <p className="text-base font-semibold leading-6 text-verde_claro2 uppercase">
+                  Nossos Produtos
+                </p>
+                <h4 className="mt-2 text-2xl font-extrabold leading-8 text-gray-900 dark:text-white sm:text-3xl sm:leading-9">
+                  Abraçando a Natureza e a Reciclagem: Redefinindo o Cuidado Pessoal com Responsabilidade Ambiental!
+                </h4>
+                <p className="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
+                  Nossos produtos naturais foram cuidadosamente selecionados para oferecer a você não apenas uma opção, mas um estilo de vida completo
+                </p>
+                <ul className="gap-6 mt-8 md:grid md:grid-cols-2">
+                  <li className="mt-6 lg:mt-0">
+                    <div className="flex">
+                      <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                        <svg
+                          className="w-4 h-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
+                        Responsabilidade ambiental
+                      </span>
+                    </div>
+                  </li>
+                  <li className="mt-6 lg:mt-0">
+                    <div className="flex">
+                      <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                        <svg
+                          className="w-4 h-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
+                        Alimentos saborosos
+                      </span>
+                    </div>
+                  </li>
+                  <li className="mt-6 lg:mt-0">
+                    <div className="flex">
+                      <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                        <svg
+                          className="w-4 h-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
+                        Qualidade alimentar
+                      </span>
+                    </div>
+                  </li>
+                  <li className="mt-6 lg:mt-0">
+                    <div className="flex">
+                      <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                        <svg
+                          className="w-4 h-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
 
-                      </svg>
-                    </span>
-                    <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
-                    Culinária Consciente
-                    </span>
-                  </div>
-                </li>
-              </ul>
+                        </svg>
+                      </span>
+                      <span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">
+                        Culinária Consciente
+                      </span>
+                    </div>
+                  </li>
+                </ul>
 
                 <div className="mt-10">
                   <Link
                     to="/produtos"
                     className=" "
                   >
-                  <button type="button" className="text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-8 py-4 text-center mr-2 mb-2"> Produtos</button>
+                    <button type="button" className="text-white bg-gradient-to-br from-[#92D94D] to-[#03A678] hover:bg-gradient-to-bl focus:ring-4 transition duration-300 ease-out focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-8 py-4 text-center mr-2 mb-2"> Produtos</button>
                   </Link>
                 </div>
-            </div>
-            <div className="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
-              <div className="relative space-y-4">
-                <div className="flex items-end justify-center space-x-4 lg:justify-start">
-                  <img
-                    className="w-32 rounded-lg shadow-lg md:w-56"
-                    width="200"
-                    src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608974/nutrividas/categorias/melao_ntptfb.png"
-                    alt="1"
-                  />
-                  <img
-                    className="w-40 rounded-lg shadow-lg md:w-64"
-                    width="260"
-                    src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608815/nutrividas/categorias/Mexirica_zchmi8.png"
-                    alt="2"
-                  />
-                </div>
-                <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
-                  <img
-                    className="w-24 rounded-lg shadow-lg md:w-40"
-                    width="170"
-                    src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608025/nutrividas/categorias/Laranja_yvllug.png"
-                    alt="3"
-                  />
-                  <img
-                    className="w-32 rounded-lg shadow-lg md:w-56"
-                    width="200"
-                    src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608025/nutrividas/categorias/Limao_b38iro.png"
-                    alt="4"
-                  />
+              </div>
+              <div className="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
+                <div className="relative space-y-4">
+                  <div className="flex items-end justify-center space-x-4 lg:justify-start">
+                    <img
+                      className="w-32 rounded-lg shadow-lg md:w-56"
+                      width="200"
+                      src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608974/nutrividas/categorias/melao_ntptfb.png"
+                      alt="1"
+                    />
+                    <img
+                      className="w-40 rounded-lg shadow-lg md:w-64"
+                      width="260"
+                      src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608815/nutrividas/categorias/Mexirica_zchmi8.png"
+                      alt="2"
+                    />
+                  </div>
+                  <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
+                    <img
+                      className="w-24 rounded-lg shadow-lg md:w-40"
+                      width="170"
+                      src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608025/nutrividas/categorias/Laranja_yvllug.png"
+                      alt="3"
+                    />
+                    <img
+                      className="w-32 rounded-lg shadow-lg md:w-56"
+                      width="200"
+                      src="https://res.cloudinary.com/salvedojuliao/image/upload/v1691608025/nutrividas/categorias/Limao_b38iro.png"
+                      alt="4"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
-        
-       
-      </div>
       </section>
-     
+
     </>
   );
 }

@@ -2,30 +2,26 @@
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Produto from '../../../models/Produto'
-import { toastAlerta } from '../../../utils/toastAlerta'
-import { useContext, useState } from 'react';
+// import { toastAlerta } from '../../../utils/toastAlerta'
+import { useContext, useEffect, useState } from 'react';
 
 interface CardProdutoProps {
     prod: Produto
+    noCarrinho?: boolean; //Se o card esiver no carrinho, será renderizado um card diferente
+    fornecedor?: boolean; //Se o card for vinculado a um usuario fornecedor, será renderizado um card diferente
 }
 
-function CardProduto({ prod }: CardProdutoProps) {
+function CardProduto({ prod, noCarrinho, fornecedor }: CardProdutoProps) {
     const [valor, setValor] = useState(prod.quantidade);
-    const { usuario } = useContext(AuthContext)
-    const isAdmin = usuario.tipo == 'admin'
 
-    function addCarrinho(){
-        try {
-            if(valor > 0){
-                setValor(valor - 1)
-                toastAlerta('Item adicionado ao carrinho', 'sucesso');
-            } else {
-                toastAlerta('Quantidade insuficiente', 'erro');
-            }
-        } catch(error:any){
-            toastAlerta('Não foi possível adicionar o item ao carrinho', 'erro');
-        }
-    }
+    useEffect(() => {
+        setValor(prod.quantidade)
+    }, [prod.quantidade]);
+
+    const { usuario, adicionarProduto, removerProduto } = useContext(AuthContext)
+    const isAdmin = usuario.tipo == 'admin'
+    const isCliente = usuario.tipo == 'cliente'
+
 
     return (
         <div className="bg-gray-100 dark:bg-black">
@@ -42,23 +38,59 @@ function CardProduto({ prod }: CardProdutoProps) {
                             maximumFractionDigits: 2,
                         }).format(prod.preco)}</p>
                         <p className="mb-3 font-bold text-gray-700 dark:text-gray-300">Quantidade: {valor}</p>
-                        {isAdmin ? 
+                        {isAdmin ? (
                             <>
                             <h1 className='font-bold dark:text-white'>Usuário Admin</h1>
-                                <div className='flex justify-evenly mt-2'>
-                                    <Link to={`/editarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" >
-                                        Editar
-                                    </Link>
-                                    <Link to={`/deletarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black">
-                                        Deletar
-                                    </Link>
-                                </div>  
+                            <div className='flex justify-evenly mt-2'>
+                                <Link to={`/editarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" >
+                                    Editar
+                                </Link>
+                                <Link to={`/deletarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black">
+                                    Deletar
+                                </Link>
+                            </div>
+                        </>
+                        ) : noCarrinho ? (
+                            <>
+                                <div className='mt-2 flex flex-col items-center'>
+                                    <button className="items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black"
+                                        onClick={() => {
+                                            adicionarProduto(prod)
+                                            setValor(valor - 1);
+                                        }}>
+                                        Adicionar 🛒
+                                    </button>
+                                    <button className="mt-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black"
+                                        onClick={() => { removerProduto(prod.id) }}>
+                                        Remover ❌
+                                    </button>
+                                </div>
                             </>
-                            :
-                            <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" onClick={addCarrinho}>
-                                Adicionar 🛒
-                            </button>
+                        ) : fornecedor ? (
+                            <div className='flex justify-evenly mt-2'>
+                                <Link to={`/editarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black" >
+                                    Editar
+                                </Link>
+                                <Link to={`/deletarProduto/${prod.id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 transition-all duration-300 ease-in-out rounded-lg hover:bg-red-900 focus:outline-none dark:bg-red-600 dark:hover:bg-white dark:hover:text-black">
+                                    Deletar
+                                </Link>
+                            </div>
+                        ) : isCliente && (
+                            <>
+                                <div className='mt-2 flex flex-col items-center'>
+                                    <button className="items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#03A678] transition-all duration-300 ease-in-out rounded-lg hover:bg-[#014040] focus:outline-none dark:bg-verde_claro2 dark:hover:bg-white dark:hover:text-black"
+                                        onClick={() => {
+                                            adicionarProduto(prod)
+                                            setValor(valor - 1);
+                                        }}>
+                                        Adicionar 🛒
+                                    </button>
+                                </div>
+                            </>
+                        )
                         }
+
+                        
                     </div>
                 </div>
             </div>
