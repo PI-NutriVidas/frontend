@@ -79,7 +79,7 @@ function Navbar() {
                 <BsFillMoonFill className="text-white dark:text-black" />
               </label>
 
-              <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Início</Link>
+              <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all' >Início</Link>
 
               <Link to='/sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Sobre</Link>
 
@@ -120,16 +120,17 @@ function Navbar() {
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6 flex flex-col justify-center items-center">
-                    <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Início</Link>
-                    <Link to='/sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Sobre</Link>
-                    <Link to='/login' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Entrar</Link>
-                    <Link to='/cadastro' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Criar Conta</Link>
+                    <Link to='/home' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all' onClick={() => setMobileMenuOpen(false)} >Início</Link>
+                    <Link to='/sobre' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={() => setMobileMenuOpen(false)}>Sobre</Link>
+                    <Link to='/login' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all' onClick={() => setMobileMenuOpen(false)}>Entrar</Link>
+                    <Link to='/cadastro' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={() => setMobileMenuOpen(false)}>Criar Conta</Link>
 
                   </div>
                   <div className="py-2 gap-y-4 flex flex-col items-center justify-center">
                     <p className='text-black font-bold dark:text-white'>Cor do fundo</p>
-                    <label className="dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
-                    </label>
+                    <label className="mr-2 dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
+                      <BsFillMoonFill className="text-white dark:text-black" />
+                     </label>
                   </div>
                 </div>
               </div>
@@ -222,10 +223,10 @@ function Navbar() {
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                   <div className="space-y-2 py-6 flex flex-col justify-center items-center">
-                    <Link to='/produtos' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Produtos</Link>
-                    <Link to='/categorias' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all'>Categorias</Link>
-                    <Link to='/perfil' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]'>Perfil</Link>
-                    <Link to='/carrinho' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D] ml-4'>
+                    <Link to='/produtos' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all' onClick={() => setMobileMenuOpen(false)}>Produtos</Link>
+                    <Link to='/categorias' className='dark:text-white transiton-all ease-in-out duration-300 text-black dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] dark:hover:text-[#92D94D] transiton-all' onClick={() => setMobileMenuOpen(false)}>Categorias</Link>
+                    <Link to='/perfil' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D]' onClick={() => setMobileMenuOpen(false)}>Perfil</Link>
+                    <Link to='/carrinho' className='text-black dark:text-white dark:hover:text-orange_03 text-md font-bold hover:text-[#02735E] transiton-all ease-in-out duration-300 dark:hover:text-[#92D94D] ml-4' onClick={() => setMobileMenuOpen(false)}>
                       Carrinho
                       <div className="ml-2 relative inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-[#03A678] border-2 border-white rounded-full dark:border-white dark:bg-[#014040]">
                         {quantidadeItems}
@@ -235,9 +236,11 @@ function Navbar() {
                   </div>
                   <div className="py-2 gap-y-4 flex flex-col items-center justify-center">
                     <p className='text-black font-bold dark:text-white'>Cor do fundo</p>
-                    <label className="dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
-                      {/* <FontAwesomeIcon icon={faMoon} className="h-[22px] text-white dark:text-black hover:text-white dark:hover:text-white transiton-all' ease-out duration-200"/> */}
-                    </label>
+
+                    <label className="mr-2 dark:hover:text-[#92D94D] transiton-all' ease-out duration-200 hover:bg-[#02735E] dark:hover:bg-[#92D94D] shadow-lg shadow-black-500/50 bg-black dark:bg-white w-[34px] h-[34px] flex justify-center items-center rounded-[50%] cursor-pointer" onClick={handleThemeSwitch}>
+                      <BsFillMoonFill className="text-white dark:text-black" />
+                     </label>
+                    
                   </div>
                 </div>
               </div>
