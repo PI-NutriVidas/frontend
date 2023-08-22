@@ -61,7 +61,7 @@ function Cadastro() {
         toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
 
       } catch (error) {
-        toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
+        toastAlerta('Usuário já cadastrado', 'erro')
       }
 
     } else {
